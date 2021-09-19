@@ -36,3 +36,7 @@ loc format:
 1. df.loc[rows,columns]
 2. df.loc[:,:] :- all rows and all columns
 3. df.loc[row level condition,[column list]] :- row level condition: <, >, == conditions of columns
+
+Object to Int data type change:
+
+column_name.astype(int)
