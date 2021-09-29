@@ -13,10 +13,11 @@ This repository contains code snippets from my Data Sciencework
 1. df.shape :- rows and columns
 2. df.describe() :- descriptive stats of table
 3. df.column_name.unique() :- It gives unique values
+4. df.dropna(axis/column name/how=all/thresh=2) :- Drops nan values #Thresh keeps rows with at least 2 non-NA values. 
 
 * Array to List:
-1. .tolist()
-2. list(column)
+6. .tolist()
+7. list(column)
 
 * Length of array/list:
 1. len(array)
@@ -39,3 +40,7 @@ This repository contains code snippets from my Data Sciencework
 Object to Int data type change:
 
 column_name.astype(int)
+
+* Timestamp:
+1. Its a duration
+2. to convert in minutes astype('timedelta64[m]
