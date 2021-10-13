@@ -56,7 +56,28 @@ SQL Insert Into:
    It is used to modify the existing records in a table. 
    Note : Be careful when updating records in a table! Notice the WHERE clause in the UPDATE statement. 
    The WHERE clause specifies which record(s) that should be updated. If you omit the WHERE clause, all records in the table will be updated!
-   UPDATE table1 SET column1, column2 WHERE condition
+   - UPDATE table1 SET column1, column2 WHERE condition
+   - UPDATE table1 SET name='x', age='Y' SET city='z'
+   UPDATE Multiple Records:It is the WHERE clause that determines how many records will be updated.
+   - Update table1 SET city='z' WHERE name='x'
+   - UPDATE table1 SET city='z' #Updates all the records in table1
+ 
+ SQL DELETE Statement:
+   It is used to delete existing records in a table.
+   Note:Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement. 
+   The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause, all records in the table will be deleted!
+   - DELETE FROM table1 WHERE value=1/'A';
+   - DELETE FROM table1; #delete all records
+   
+ SQL TOP, LIMIT, FETCH FIRST or ROWNUM Clause:
+   It is used to specify the number of records to return.
+   SELECT TOP number/percent column_name(s) FROM table1 WHERE condition:
+   SELECT TOP 3 * FROM Customers;
+   SELECT TOP 50 PERCENT * FROM table1;
+   SELECT TOP 3 * FROM Customers WHERE Country='x';
+ 
+   
+   
    
    
    
