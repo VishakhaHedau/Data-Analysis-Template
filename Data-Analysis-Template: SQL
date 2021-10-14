@@ -21,16 +21,20 @@ DROP INDEX - deletes an index
 SQL SELECT:
    SELECT column1, column2 FROM table1; (selects only specified fields) or
    SELECT*FROM table1; (selects all the fields)
+   SELECT 'Hello World' AS Result : Output is Result column with Hello World as a row.
 SQL DISTINCT:
    SELECT DISTINCT column1,cplumn2 FROM table1; : return only distinct (different) values.
    SELECT COUNT(DISTINCT column1,column2) FROM table1; :lists the number of distinct values 
+   
 SQL WHERE:   
    SELECT column1,column2 FROM table1 WHERE value= 'A' or 1 ; :filters records, used to extract only those records that fulfill a specified condition. 
    Note: The WHERE clause is not only used in SELECT statements, it is also used in UPDATE, DELETE, etc.!
+   
 SQL AND, OR, and NOT Operators:
    SELECT column1, column2 From table1 WHERE value='A'AND value='B'AND value=1;
    SELECT column1, column2 From table1 WHERE value='A'OR value='B'OR value=1;
    SELECT column1, column2 From table1 WHERE NOT value='A';
+   
 SQL Combining AND, OR, NOT (use parenthesis to form complex expressions)
    SELECT * FROM table1 WHERE/WHERE NOT column='A' AND (value=1 OR value=2)
    
@@ -47,12 +51,12 @@ SQL Insert Into:
      make sure the order of the values is in the same order as the columns in the table.
      - INSERT INTO table1 VALUES (value1, value2)
  
- SQL NULL Values:
+SQL NULL Values:
    Test for NULL Values: use the IS NULL and IS NOT NULL operators.
    -IS NULL Syntex : SELECT column1 FROM table1 WHERE columne_name IS NULL;
    -IS NOT NULL Syntex :SELECT column1 FROM table1 WHERE columne_name IS NOT NULL;
  
- SQL UPDATE Statement:
+SQL UPDATE Statement:
    It is used to modify the existing records in a table. 
    Note : Be careful when updating records in a table! Notice the WHERE clause in the UPDATE statement. 
    The WHERE clause specifies which record(s) that should be updated. If you omit the WHERE clause, all records in the table will be updated!
@@ -62,24 +66,60 @@ SQL Insert Into:
    - Update table1 SET city='z' WHERE name='x'
    - UPDATE table1 SET city='z' #Updates all the records in table1
  
- SQL DELETE Statement:
+SQL DELETE Statement:
    It is used to delete existing records in a table.
    Note:Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement. 
    The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause, all records in the table will be deleted!
    - DELETE FROM table1 WHERE value=1/'A';
    - DELETE FROM table1; #delete all records
    
- SQL TOP, LIMIT, FETCH FIRST or ROWNUM Clause:
+SQL TOP, LIMIT, FETCH FIRST or ROWNUM Clause:
    It is used to specify the number of records to return.
    SELECT TOP number/percent column_name(s) FROM table1 WHERE condition:
    SELECT TOP 3 * FROM Customers;
-   SELECT TOP 50 PERCENT * FROM table1;
+   SELECT TOP 50 PERCENT * FROM table1 LIMIT 5(Gives first 10) OFFSET 5(Gives second 5 after ignoring first 10);
    SELECT TOP 3 * FROM Customers WHERE Country='x';
+   
+SQL MIN() and MAX() Functions:
+   SELECT MIN/MAX (column1) FROM table1 WHERE condition;
  
+SQL COUNT(), AVG() and SUM() Functions:
+   SELECT COUNT(*) FROM table1 WHERE condition;
+   SELECT AVG(column1) FROM table1 WHERE condition;
+   SELECT SUM(column1) FROM table1 WHERE condition;
    
+SQL LIKE Operator
+    It is used in a WHERE clause to search for a specified pattern in a column.
+    SELECT column1 FROM table1 WHERE column LIKE pattern;
+    
+    Some examples showing different LIKE operators with '%' and '_' wildcards
+    -WHERE CustomerName LIKE 'a%':Finds any values that start with "a";
+    -WHERE CustomerName LIKE '%a':Finds any values that end with "a";
+    -WHERE CustomerName LIKE '%or%':Finds any values that have "or" in any position;
+    -WHERE CustomerName LIKE '_r%':Finds any values that have "r" in the second position;
+    -WHERE CustomerName LIKE 'a_%':Finds any values that start with "a" and are at least 2 characters in length;
+    -WHERE CustomerName LIKE 'a__%': Finds any values that start with "a" and are at least 3 characters in length;
+    -WHERE ContactName LIKE 'a%o':Finds any values that start with "a" and ends with "o";
+
+SQL Wildcards
+   It is used to substitute one or more characters in a string.
    
+SQL CREATE TABLE:
+   CREATE TABLE test ( a INTEGER, b TEXT);
+   INSERT INTO test VALUES (1, 'a');
+   INSERT INTO test VALUES('2', 'b');
    
-   
+SQL DROP TABLE:
+  DROP TABLE table1;
+  DROP TABLE IF EXISTS test;
+  
+SQL Inserting rows:
+  INSERT INTO table1 VALUES (1,'A', 'B');
+  INSERT INTO table1 (column1, column2) VALUES ('A','B');
+  INSERT INTO table DEFAULT VALUES;
+  INSERT INTO table1 (column1, column2) SELECT name, id, description from item;
+  SELECT * FROM test;
+  
    
    
    
